@@ -1,0 +1,497 @@
+:root {
+    /* Couleurs */
+    --primary-bg-color: #D5B9B2;
+    --primary-text-color: #484040;
+    --nav-bg-color: #6D2E46;
+    --nav-hover-bg-color: #A26769;
+    --line-color: #6D2E46;
+    --dropdown-bg-color: #A26769;
+    --secondary-text-color: #ECE2D0;
+
+    /* Espacements */
+    --header-height: 12vh;
+    --nav-height: 7vh;
+    --home-height: 50vh;
+    --font-size-base: 16px;
+    --font-size-large: 20px;
+    --font-size-medium: 18px;
+    --font-size-small: 14px;
+
+    /* Box shadows */
+    --box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+
+    /* Bordures */
+    --border-radius: 7px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Courier, monospace;
+}
+
+body {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+}
+
+header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    width: 80vw;
+    height: var(--nav-height);
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-bg-color);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    color: var(--secondary-text-color);
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: white;
+        transition: width 0.5s ease;
+    }
+
+    &:hover:after {
+        width: 100%;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+.dropdown:hover {
+    background-color: var(--nav-hover-bg-color);
+}
+
+.dropdown-content {
+    position: absolute;
+    min-width: 160px;
+    margin-top: 5px;
+    top: 100%;
+    z-index: 1;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    height: auto;
+    overflow: hidden;
+    background-color: var(--dropdown-bg-color);
+}
+
+.dropdown:hover .dropdown-content {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.dropdown-content li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+}
+
+.nav-content {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-content li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-small);
+}
+
+.home {
+    height: var(--home-height);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-align: center;
+}
+
+/* Ajouter une ligne sous le texte */
+.underline {
+    position: relative;
+    display: inline-block;
+}
+
+/* Pseudo-élément pour la ligne */
+.underline::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;  /* Espacement entre le texte et la ligne */
+    left: 0;
+    width: 0;  /* On commence avec une largeur de 0 */
+    height: 4px;   /* Hauteur de la ligne */
+    background-color: var(--line-color);  /* Couleur de la ligne */
+    transition: width 2.5s ease-in-out; /* Transition pour l'effet fluide */
+    border-radius: 3px;
+}
+
+@keyframes underlineEffect {
+    0% {
+        width: 0;
+        left: 0;
+    }
+    25% {
+        width: 100%;
+        left: 0;
+    }
+    50% {
+        width: 0;
+        left: 100%;
+    }
+    75% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 0;
+    }
+}
+
+.underline::after {
+    animation: underlineEffect 8s infinite; /* Appliquer l'animation à la ligne seulement */
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .about-container {
+        width: 90vw;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        padding: 8px;
+        background-color: var(--nav-bg-color);
+        color: var(--secondary-text-color);
+    }
+
+    img {
+        height: auto;
+        width: 30vw;
+        border-radius: 10px;
+    }
+
+    ul {
+        list-style: none;
+        width: 100%;
+
+        li {
+            width: 80%;
+        }
+    }
+
+    .about-title {
+        font-size: var(--font-size-large);
+    }
+}
+
+.experience {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.experience-content {
+    display: grid;
+    grid-template-columns: 90vw;
+    align-items: center;
+    justify-content: center;
+    
+    div {
+        color: var(--secondary-text-color);
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        padding: 8px;
+        background-color: var(--nav-bg-color);
+        display: flex;
+        flex-direction: column;   
+        text-align: left;  
+    }
+}
+
+.experience-title {
+    font-size: var(--font-size-large);
+}
+
+.service-title {
+    font-size: var(--font-size-large);
+}
+
+.service {
+    margin-top: 5vh;
+    text-align: center;
+}
+
+.services-content {
+    display: grid;
+    grid-template-columns: 90vw;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+        transition: transform 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.01);
+        }
+    }
+
+    .service-content {
+        color: var(--secondary-text-color);
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        padding: 8px;
+        background-color: var(--nav-bg-color);
+        display: flex;
+        flex-direction: column;   
+        text-align: left;  
+    }
+
+    img {
+        width: 30vw;
+    }
+}
+
+.contact-title {
+    font-size: var(--font-size-large);
+}
+
+.contact {
+    margin-top: 5vh;
+    height: 10vh;
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 20vh;
+            width: 100vw;
+        }
+    }
+}
+
+@media (min-width: 481px) {
+    .about-container-info {
+        display: flex;
+        flex-direction: row;
+    
+        ul {
+            margin-left: 3vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .services-content {
+        .service-content {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    :root {
+        --font-size-base: 18px;
+        --font-size-large: 22px;
+        --font-size-medium: 20px;
+        --font-size-small: 16px;
+    }
+
+    .home {
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 800px) {
+    .home {
+        font-size: 32px;
+    }
+
+    .about {
+        img {
+            width: 40vw;
+        }
+    }
+
+    .services-content {
+        img {
+            width: 15vw;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .home {
+        font-size: 34px;
+    }
+
+    :root {
+        --font-size-base: 20px;
+        --font-size-large: 24px;
+        --font-size-medium: 22px;
+        --font-size-small: 18px;
+    }
+
+    .services-content {
+        grid-template-columns: 44vw 44vw;
+        gap: 2vw;
+        font-size: 14px;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    .dropdown-content {
+        visibility: visible;   /* Afficher le contenu par défaut */
+        opacity: 1;             /* Rendre les éléments visibles */
+        transform: translateY(0);  /* Annuler l'effet de translation */
+        position: static;       /* Annuler le positionnement absolu pour un affichage sur la même ligne */
+        margin-top: 0;          /* Retirer l'espacement entre le menu et la liste */
+        display: grid;
+        grid-template-columns: 12vw 12vw 12vw 12vw 12vw;
+        width: auto;            /* Ajuster la largeur en fonction du contenu */
+        background-color: var(--nav-bg-color);
+        height: 100%;
+        width: 100%;
+        
+        li {
+            width: 100%;
+            height: 100%;
+
+            &:hover {
+                background-color: var(--dropdown-bg-color);
+            }
+        }
+    }
+
+    .dropdown {
+        display: grid;          /* Afficher le dropdown en ligne avec les autres éléments */
+        grid-template-columns: 0vw 65vw;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-content {
+        display: grid;
+        grid-template-columns: 15vw 65vw;/* Espacer les éléments sur la même ligne */
+        align-items: center;
+        width: 100%;
+    }
+
+    .dropdown:hover {
+        background-color: var(--nav-bg-color);
+    }
+}
+
+@media (min-width: 1400px) {
+    .services-content {
+        font-size: 20px;
+    }
+
+    :root {
+        --font-size-base: 22px;
+        --font-size-large: 26px;
+        --font-size-medium: 24px;
+        --font-size-small: 20px;
+    }
+
+    .home {
+        font-size: 40px;
+    }
+}
+
+
+@media (min-width: 1600px) {
+    :root {
+        --font-size-base: 26px;
+        --font-size-large: 30px;
+        --font-size-medium: 28px;
+        --font-size-small: 24px;
+    }
+
+    .home {
+        font-size: 48px;
+    }
+}

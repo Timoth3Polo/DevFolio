@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevFolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="./images/icon.svg">
+</head>
+<body>
+    <script src="script.js"></script>
+    <header>
+        <nav>
+            <ul class="nav-content">
+                <li><strong>DevFolio</strong></li>
+                <li class="dropdown">
+                    <div id="menu-button">HOME</div>
+                    <ul class="dropdown-content">
+                        <li><a href="#home" onclick="updateMenuText('HOME')">HOME</a></li>
+                        <li><a href="#about" onclick="updateMenuText('À PROPOS')">À PROPOS</a></li>
+                        <li><a href="#experience" onclick="updateMenuText('ÉXPERIENCES')">ÉXPERIENCE</a></li>
+                        <li><a href="#services" onclick="updateMenuText('SERVICES')">SERVICE</a></li>
+                        <li><a href="#contact" onclick="updateMenuText('CONTACT')">CONTACT</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <section id="home" class="home">
+            <strong>Je suis Timothée PAUL</strong>
+            <strong class="underline">Full-stack developper</strong>
+        </section>
+        <section id="about" class="about">
+            <div class="about-container">
+                <div class="about-container-info">
+                    <img src="./images/self.png" alt="self"/>
+                    <ul>
+                        <li><strong>Prénom NOM:</strong> Timothée PAUL</li>
+                        <li><strong>Profile:</strong> Développeur Full-stack</li>
+                        <li><strong>E-mail:</strong> timoth3.paul@gmail.com</li>
+                        <li><strong>GitHub:</strong> <a href="https://github.com/Timoth3Polo" style="text-decoration: none; color: white;">Timoth3Polo</a></li>
+                    </ul>
+                </div>
+                <br/>
+                <div>
+                    <p>
+                        <strong class="about-title">À propos</strong>
+                        <br/>
+                        <br/>
+                        Développeur Full-Stack j’ai acquis des compétences approfondies dans 
+                        la conception d’applications web complexes à forte valeur métier, 
+                        à travers des projets tels que Cassiopée pour le Ministère de la Justice, 
+                        ainsi que divers side projects. 
+                        Ces expériences m'ont permis de renforcer mes compétences techniques dans des environnements 
+                        variés et d'intervenir sur l’ensemble du cycle de développement, 
+                        de la conception à la mise en production.
+                        <br/>
+                        Grâce à cette polyvalence et à ces réalisations, je suis actuellement 
+                        à la recherche d'une mission en développement web Full-Stack, 
+                        où je pourrai apporter ma contribution à la création et à 
+                        l'optimisation de solutions digitales innovantes et à fort impact.
+                    </p>
+                </div>
+                <br/>
+                <div>
+                    <strong class="about-title">Compétences</strong>
+                    <br/>
+                    <br/>
+                    <ul>
+                        <li>Java (version 5 -> 21)</li>
+                        <li>Spring Framework (Spring, Spring Boot, Spring MVC, Spring Security)</li>
+                        <li>Javascript (JQuery)</li>
+                        <li>Angular</li>
+                        <li>HTML5/CSS3</li>
+                        <li>Base de données (Oracle, PostgreSQL, MySQL)</li>
+                        <li>SQL, PL/SQL, PL/pgSQL</li>
+                        <li>CI/CD (Docker, JUnit, Git, Jenkins, Maven/Gradle)</li>
+                        <li>Cycle en V, Agile (Scrum)</li>
+                        <li>Bash</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <strong class="experience-title">ÉXPERIENCE</strong>
+            <div class="experience-content">
+                <div>
+                    <p><strong>Développeur web Full-stack</strong> 04/2022 - 06/2024</p>
+                    <p><strong>Inetum</strong> - Lille - CDI</p>
+                    <br/>
+                    <p><strong>Projet</strong> Cassiopée</p>
+                    <p><strong>Type de projet</strong> TMA</p>
+                    <br/>
+                    <p><strong>Méthodologies</strong> Gestion de cycle en V (2022), transition vers agile (2023)</p>
+                    <br/>
+                    <p><strong>Équipe</strong> 2 chef de projets, 2 scrum master, 6 développeurs, 6 business analysts, 2 architectes, 2 DBA</p>
+                    <br/>
+                    <br/>
+                    <strong>Réalisations</strong>
+                    <br/>
+                    <i>Migration Hibernate</i>
+                    <p>Transition d'Hibernate 3 vers Hibernate 5, y compris l'analyse des impacts associés.</p>
+                    <br/>
+                    <i>Gestion des contrats SOAP</i>
+                    <p>Modifications des contrats sur des services externes pour la génération des éditions.</p>
+                    <br/>
+                    <i>Mise à jour et étude d'impact</i>
+                    <p>Mise à jour des fonctionnalités dépréciées et analyse de leurs impacts.</p>
+                    <br/>
+                    <i>Étude des performances applicatives</i>
+                    <p>Utilisation d'un APM (Application Performance Management) pour l'analyse des performances et la proposition de prototypes d'amélioration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="service">
+            <strong class="service-title">SERVICE</strong>
+            <div class="services-content">
+                <a href="https://google.com">
+                    <div class="service-content">
+                        <img src="./images/lirafus.svg" alt="lirafus application icon">
+                        <br/>
+                        <div>
+                            <div><strong>LIRAFUS APP</strong></div>
+                            <div>Il s'agit d'une application web permettant aux personnes de découvrir les classes et rôles des personnes de Dofus, offrant une interface claire et intuitive.</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <a href="mailto:timoth3.paul@gmail.com">
+                <div>
+                    <strong class="contact-title">CONTACTEZ-MOI</strong>
+                </div>
+            </a>
+        </section>
+    </div>
+</body>
+</html>
