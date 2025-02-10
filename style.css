@@ -11,7 +11,7 @@
     /* Espacements */
     --header-height: 12vh;
     --nav-height: 7vh;
-    --home-height: 50vh;
+    --home-height: 40vh;
     --font-size-base: 16px;
     --font-size-large: 20px;
     --font-size-medium: 18px;
@@ -234,6 +234,12 @@ nav ul a {
         padding: 8px;
         background-color: var(--nav-bg-color);
         color: var(--secondary-text-color);
+
+        .github-link {
+            color: white;
+            text-decoration: none;
+            animation: bold-text 4s linear infinite;
+        }
     }
 
     img {
@@ -254,6 +260,25 @@ nav ul a {
     .about-title {
         font-size: var(--font-size-large);
     }
+}
+
+@keyframes bold-text {
+    0% {
+        font-weight: 400;
+    }
+    25% {
+        font-weight: 650;
+    }
+    50% {
+        font-weight: 900;
+    }
+    75% {
+        font-weight: 650;
+    }
+    100% {
+        font-weight: 400;
+    }
+
 }
 
 .experience {
@@ -304,11 +329,12 @@ nav ul a {
         transition: transform 0.3s ease-in-out;
 
         &:hover {
-            transform: scale(1.01);
+            transform: scale(1.1);
         }
     }
 
     .service-content {
+        margin-top: 2vh;
         color: var(--secondary-text-color);
         border-radius: 10px;
         box-shadow: var(--box-shadow);
@@ -344,7 +370,44 @@ nav ul a {
             text-align: center;
             height: 20vh;
             width: 100vw;
+
+            div {
+                width: 70vw;
+                height: 10vh;
+                position: relative;
+                background-color: var(--primary-bg-color);
+                border-radius: 10px;
+
+                &:after, &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: calc(99% + 10px);
+                    height: calc(99% + 10px);
+                    border-radius: 10px;
+                    background-image: conic-gradient(from var(--angle), transparent 70%, var(--nav-bg-color));
+                    translate: -50% -50%;
+                    z-index: -1;
+                    animation: 3s spin linear infinite;
+                }
+            }
         }
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    } 
+    to {
+        --angle: 360deg;
     }
 }
 
@@ -366,6 +429,16 @@ nav ul a {
             flex-direction: row;
             align-items: center;
             justify-content: center;
+        }
+    }
+
+    .contact {
+        a {
+            div {
+                div {
+                    width: 50vw;
+                }
+            }
         }
     }
 }
@@ -397,6 +470,16 @@ nav ul a {
     .services-content {
         img {
             width: 15vw;
+        }
+    }
+
+    .contact {
+        a {
+            div {
+                div {
+                    width: 40vw;
+                }
+            }
         }
     }
 }
@@ -463,6 +546,16 @@ nav ul a {
     .dropdown:hover {
         background-color: var(--nav-bg-color);
     }
+
+    .contact {
+        a {
+            div {
+                div {
+                    width: 30vw;
+                }
+            }
+        }
+    }
 }
 
 @media (min-width: 1400px) {
@@ -479,6 +572,16 @@ nav ul a {
 
     .home {
         font-size: 40px;
+    }
+
+    .contact {
+        a {
+            div {
+                div {
+                    width: 20vw;
+                }
+            }
+        }
     }
 }
 
