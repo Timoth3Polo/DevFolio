@@ -264,21 +264,20 @@ nav ul a {
 
 @keyframes bold-text {
     0% {
-        font-weight: 400;
+        text-shadow: none;
     }
     25% {
-        font-weight: 650;
+        text-shadow: 0.3px 0 var(--secondary-text-color), -0.3px 0 var(--secondary-text-color);
     }
     50% {
-        font-weight: 900;
+        text-shadow: 0.6px 0 var(--secondary-text-color), -0.6px 0 var(--secondary-text-color);
     }
     75% {
-        font-weight: 650;
+        text-shadow: 0.3px 0 var(--secondary-text-color), -0.3px 0 var(--secondary-text-color);
     }
     100% {
-        font-weight: 400;
+        text-shadow: none;
     }
-
 }
 
 .experience {
